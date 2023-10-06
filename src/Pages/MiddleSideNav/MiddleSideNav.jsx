@@ -18,9 +18,9 @@ const MiddleSideNav = () => {
             <h2 className='text-2xl '>Dragon News Home:{newsCategory.length}</h2>
             {
                 newsCategory.slice(0,4).map(news => 
-                <Link 
-                to={`/news/${news.category_id}`}
-                key={news.id} >
+                <div
+                // to={`/news/${news._id}`}
+                key={news._id} >
 
                  <div className='flex justify-between border p-2 bg-base-200 mb-4 mt-10'>
                      <div className='flex gap-5'>
@@ -37,7 +37,16 @@ const MiddleSideNav = () => {
                  </div>
                  <p className='text-[#403F3F] text-2xl font-bold mb-4'>{news.title}</p>
                  <img src={news.image_url} alt="" />
-                 <p>{news.details}</p>
+                 <p>
+                    {
+                     news.details.length > 200 ? 
+                     <p>{news.details.slice(0,200)} <Link 
+                     to={`/news/${news._id}`}
+
+                     className='text-blue-600'>Read More...</Link>
+                     </p> : <p>{news.details}</p>
+                    }
+                    </p>
                 <div className='flex justify-between'>
                     <div className='flex gap-4 mt-3'>
                     <div className="rating gap-1">
@@ -55,9 +64,7 @@ const MiddleSideNav = () => {
                        <p >{news.total_view}</p>
                     </div>
                  </div>
-
-
-                </Link>)
+            </div>)
                 
             }
             {/* <img className='w-10 rounded-full' src={} alt="" /> */}

@@ -17,19 +17,17 @@ const Register = () => {
         const password = form.get('password')
         console.log(name, photoUrl,email,password);
 
-        //Create User
+    //Create User
      createUser(email, password)
        .then(result => {
           console.log(result.user)
+        })
         .catch(error => {
             console.error(error)
         })
-     })
      }
      
      
-  
-
    return (
     <div> 
       <NavBar></NavBar>
