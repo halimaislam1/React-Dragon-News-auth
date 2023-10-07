@@ -37,7 +37,7 @@ const MiddleSideNav = () => {
                  </div>
                  <p className='text-[#403F3F] text-2xl font-bold mb-4'>{news.title}</p>
                  <img src={news.image_url} alt="" />
-                 <p>
+                 <p className='mb-3'>
                     {
                      news.details.length > 200 ? 
                      <p>{news.details.slice(0,200)} <Link 
